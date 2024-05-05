@@ -1,5 +1,6 @@
 package Staff.mangement.Spring.Web.example.Staff.Portal.service;
 
+import Staff.mangement.Spring.Web.example.Staff.Portal.exeption.UserNotFoundException;
 import Staff.mangement.Spring.Web.example.Staff.Portal.model.Employee;
 import Staff.mangement.Spring.Web.example.Staff.Portal.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class EmployeeService {
 
     public Employee findEmployeeById(Long id) {
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
+                .orElseThrow(() -> new UserNotFoundException("User by id " + id+" was not found"));
     }
 
     public void deleteEmployee(Long id){
